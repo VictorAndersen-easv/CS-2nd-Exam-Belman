@@ -14,7 +14,7 @@
             <TextField fx:id="enterUsernameField" layoutX="124.0" layoutY="154.0" promptText="Username" />
             <TextField fx:id="enterPasswordField" layoutX="124.0" layoutY="187.0" promptText="Password" />
             <ImageView fitHeight="121.0" fitWidth="155.0" layoutX="139.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="invalidLoginTxt" layoutX="119.0" layoutY="222.0" text="Invalid Login. Please try again." />
+            <Label fx:id="invalidLoginTxt" layoutX="119.0" layoutY="222.0" text="Invalid Login. Please try again." visible="false" />
             <Button fx:id="loginBtn" layoutX="173.0" layoutY="247.0" mnemonicParsing="false" onAction="#loginBtnAction" text="Login" />
          </children>
       </AnchorPane>
