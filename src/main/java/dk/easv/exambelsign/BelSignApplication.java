@@ -21,3 +21,4 @@ public class BelSignApplication extends Application {
         launch();
     }
 }
+

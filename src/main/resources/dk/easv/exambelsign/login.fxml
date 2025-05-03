@@ -3,17 +3,23 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.exambelsign.GUI.LoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.exambelsign.GUI.LoginController">
    <right>
       <AnchorPane prefHeight="400.0" prefWidth="398.0" BorderPane.alignment="CENTER">
          <children>
             <TextField fx:id="enterUsernameField" layoutX="124.0" layoutY="154.0" promptText="Username" />
             <TextField fx:id="enterPasswordField" layoutX="124.0" layoutY="187.0" promptText="Password" />
-            <ImageView fitHeight="121.0" fitWidth="155.0" layoutX="139.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="121.0" fitWidth="155.0" layoutX="121.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../Images/belman_logo_transparent.png" />
+               </image></ImageView>
             <Label fx:id="invalidLoginTxt" layoutX="119.0" layoutY="222.0" text="Invalid Login. Please try again." visible="false" />
             <Button fx:id="loginBtn" layoutX="173.0" layoutY="247.0" mnemonicParsing="false" onAction="#loginBtnAction" text="Login" />
          </children>
@@ -22,7 +28,11 @@
    <left>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #004b88;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="200.0" fitWidth="216.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true" />
+            <Text fill="#f2f2f2" layoutX="14.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BelSign">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
    </left>
