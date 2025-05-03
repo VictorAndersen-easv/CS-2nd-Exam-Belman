@@ -43,7 +43,7 @@ public class LoginController {
             invalidLoginTxt.setVisible(false);
             System.out.println("You are logged in");
 
-            Parent homepage = FXMLLoader.load(getClass().getResource("/dk/easv/exambelsign/homepage.fxml"));
+            Parent homepage = FXMLLoader.load(getClass().getResource("/dk/easv/exambelsign/adminpage.fxml"));
             Scene scene = new Scene(homepage);
             Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             appStage.setScene(scene);
