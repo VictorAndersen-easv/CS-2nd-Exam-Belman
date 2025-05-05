@@ -25,13 +25,13 @@ public class OrdersPageController {
     @FXML
     private TableView<Order> OrderTable;
     @FXML
-    private TableColumn ordnumCol;
+    private TableColumn<Order, Integer> ordnumCol;
     @FXML
-    private TableColumn ordnamCol;
+    private TableColumn<Order, String> ordnamCol;
     @FXML
-    private TableColumn apprbyCol;
+    private TableColumn<Order, String> apprbyCol;
     @FXML
-    private TableColumn apprstatCol;
+    private TableColumn<Order, String> apprstatCol;
 
     private ObservableList<Order> ordersToBeViewed;
 
@@ -40,16 +40,23 @@ public class OrdersPageController {
     public OrdersPageController() throws Exception {
 
         ObservableList<Order> ordersToBeViewed = FXCollections.observableArrayList();
+        odao.getAllOrders();
         ordersToBeViewed.addAll(odao.getAllOrders());
+
 
     }
 
     public ObservableList<Order> getObservableOrders() {return ordersToBeViewed;}
 
 
-    public void initialize(){
+    public void initialize() throws Exception {
+        OrderTable.setItems(ordersToBeViewed);
+        ordnumCol.setCellValueFactory(new PropertyValueFactory<>("ordernumber"));
+        ordnamCol.setCellValueFactory(new PropertyValueFactory<>("ordername"));
+        apprbyCol.setCellValueFactory(new PropertyValueFactory<>("approvedby"));
+        apprstatCol.setCellValueFactory(new PropertyValueFactory<>("approvalstatus"));
+        OrderTable.setItems(ordersToBeViewed);
 
-        OrderTable.setItems(getObservableOrders());
 
     }
 

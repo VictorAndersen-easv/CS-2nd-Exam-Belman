@@ -34,7 +34,7 @@ public class OrderDAO {
                 Order orderthing = new Order(ordernumber, ordername, approvedby, approvalstatus);
                 allOrders.add(orderthing);
             }
-            //Return the list of movies
+            //Return the list of orders
             return allOrders;
 
         } catch (SQLException ex) {

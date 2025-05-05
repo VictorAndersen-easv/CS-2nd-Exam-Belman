@@ -15,13 +15,15 @@ import java.io.IOException;
 public class AdminPageController {
 
 
-    public void logoutBtnClick(ActionEvent event) throws IOException {
+    public void logoutBtnClick(ActionEvent event) throws Exception {
 
         Parent loginpage = FXMLLoader.load(getClass().getResource("/dk/easv/exambelsign/login.fxml"));
         Scene scene = new Scene(loginpage);
         Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         appStage.setScene(scene);
         appStage.show();
+
+
 
     }
 
@@ -33,14 +35,13 @@ public class AdminPageController {
     @FXML
     private void OrdersBtnClick(ActionEvent event) throws Exception {
 
-
-
+            OrdersPageController ordersPageController = new OrdersPageController();
             Parent loginpage = FXMLLoader.load(getClass().getResource("/dk/easv/exambelsign/orderspage.fxml"));
             Scene scene = new Scene(loginpage);
             Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             appStage.setScene(scene);
             appStage.show();
-
+            ordersPageController.initialize();
 
 
     }
