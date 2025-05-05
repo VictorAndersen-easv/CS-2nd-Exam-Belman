@@ -15,10 +15,10 @@ public class Order {
         this.approvalstatus = approvalstatus;
     }
 
-    public int getOrdernumber() {return this.ordernumber;}
-    public String getOrdername() { return this.ordername;}
-    public String getApprovedby() { return this.approvedby;}
-    public String getApprovalstatus() { return this.approvalstatus;}
+    public int getOrdernumber() { return this.ordernumber; }
+    public String getOrdername() { return this.ordername; }
+    public String getApprovedby() { return this.approvedby; }
+    public String getApprovalstatus() { return this.approvalstatus; }
 
 
 

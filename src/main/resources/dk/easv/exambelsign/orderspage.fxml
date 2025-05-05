@@ -31,20 +31,21 @@
     <left>
         <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="14.0" layoutY="21.0" mnemonicParsing="false" text="Inspect Photos" />
+            <Button fx:id="InspectPhotosBtn" layoutX="14.0" layoutY="21.0" mnemonicParsing="false" text="Inspect Photos" />
             <Button layoutX="14.0" layoutY="62.0" mnemonicParsing="false" text="Inspect User" />
-            <Button layoutX="14.0" layoutY="103.0" mnemonicParsing="false" text="Edit / Approve" />
+            <Button fx:id="EditBtn" layoutX="14.0" layoutY="103.0" mnemonicParsing="false" onAction="#EditBtnClick" text="Edit / Approve" />
+            <Button layoutX="14.0" layoutY="141.0" mnemonicParsing="false" text="Add new Order" />
          </children></AnchorPane>
     </left>
     <center>
         <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView prefHeight="302.0" prefWidth="370.0">
+            <TableView fx:id="OrderTable" prefHeight="302.0" prefWidth="370.0">
               <columns>
-                <TableColumn prefWidth="92.0" text="C1" />
-                <TableColumn prefWidth="84.79998779296875" text="C2" />
-                  <TableColumn prefWidth="94.39996337890625" text="C3" />
-                  <TableColumn prefWidth="99.20001220703125" text="C4" />
+                <TableColumn fx:id="ordnumCol" prefWidth="92.0" text="Order Number" />
+                <TableColumn fx:id="ordnamCol" prefWidth="84.79998779296875" text="Order Name" />
+                  <TableColumn fx:id="apprbyCol" prefWidth="94.39996337890625" text="Approved By" />
+                  <TableColumn fx:id="apprstatCol" prefWidth="99.20001220703125" text="Approval Status" />
               </columns>
             </TableView>
             <ScrollBar layoutX="373.0" orientation="VERTICAL" prefHeight="304.0" prefWidth="26.0" />

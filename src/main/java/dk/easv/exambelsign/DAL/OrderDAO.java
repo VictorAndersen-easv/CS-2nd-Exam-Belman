@@ -5,6 +5,8 @@ import dk.easv.exambelsign.BE.User;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class OrderDAO {
 
@@ -13,14 +15,33 @@ public class OrderDAO {
     public OrderDAO() throws IOException {
     }
 
-    public void getAllOrders() throws Exception {
+    public List<Order> getAllOrders() throws Exception {
+        //this method gets all the movies from the database
+        ArrayList<Order> allOrders = new ArrayList<>();
+
         try (Connection connection = dbConnector.getConnection()) {
-            String sql = "SELECT * FROM orderstuff";
+            String sqlstr = "SELECT * FROM orderstuff";
             Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery(sql);
+            ResultSet rs = statement.executeQuery(sqlstr);
+
+            while (rs.next()) {
+                //Get the data from the database
+                int ordernumber = rs.getInt("ordernumber");
+                String ordername = rs.getString("ordername");
+                String approvedby = rs.getString("approvedby");
+                String approvalstatus = rs.getString("approvalstatus");
+
+                Order orderthing = new Order(ordernumber, ordername, approvedby, approvalstatus);
+                allOrders.add(orderthing);
+            }
+            //Return the list of movies
+            return allOrders;
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            throw new Exception("Could not get orders from database", ex);
         }
     }
-
 
     public Order createOrder (Order order) throws Exception {
         // this method helps import the data from Order to add to the orderstuff table in the sql server
@@ -52,6 +73,13 @@ public class OrderDAO {
         } catch (SQLException ex) {
             throw new Exception("Could not get orders from database.", ex);
         }
+
+
+
+
+        }
+
+
     }
-}
+
 
