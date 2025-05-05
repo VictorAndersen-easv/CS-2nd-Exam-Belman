@@ -25,5 +25,11 @@ public class AdminPageController {
     }
 
 
+    @FXML
+    private void UsersBtnClick(ActionEvent actionEvent) {
+    }
 
+    @FXML
+    private void OrdersBtnClick(ActionEvent actionEvent) {
+    }
 }

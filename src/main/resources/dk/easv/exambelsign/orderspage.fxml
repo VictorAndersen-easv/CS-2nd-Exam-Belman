@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.exambelsign.GUI.OrdersPageController">
+    <top>
+        <AnchorPane prefHeight="91.0" prefWidth="600.0" style="-fx-background-color: #004b88;" BorderPane.alignment="CENTER">
+            <children>
+                <TextFlow layoutX="14.0" layoutY="2.0" prefHeight="91.0" prefWidth="200.0">
+                    <children>
+                        <Text fill="#f0f0f0" strokeType="OUTSIDE" strokeWidth="0.0" text="BelSign" textAlignment="CENTER" wrappingWidth="230.39691162109375">
+                            <font>
+                                <Font size="48.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </TextFlow>
+                <Button fx:id="logoutBtn" layoutX="534.0" layoutY="14.0" mnemonicParsing="false" onAction="#logoutBtnClick" text="Logout" />
+            <Button fx:id="HomeBtn" layoutX="251.0" layoutY="47.0" mnemonicParsing="false" onAction="#HomeBtnClick" text="Home" />
+            </children>
+        </AnchorPane>
+    </top>
+    <left>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="14.0" layoutY="21.0" mnemonicParsing="false" text="Inspect Photos" />
+            <Button layoutX="14.0" layoutY="62.0" mnemonicParsing="false" text="Inspect User" />
+            <Button layoutX="14.0" layoutY="103.0" mnemonicParsing="false" text="Edit / Approve" />
+         </children></AnchorPane>
+    </left>
+    <center>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView prefHeight="302.0" prefWidth="370.0">
+              <columns>
+                <TableColumn prefWidth="92.0" text="C1" />
+                <TableColumn prefWidth="84.79998779296875" text="C2" />
+                  <TableColumn prefWidth="94.39996337890625" text="C3" />
+                  <TableColumn prefWidth="99.20001220703125" text="C4" />
+              </columns>
+            </TableView>
+            <ScrollBar layoutX="373.0" orientation="VERTICAL" prefHeight="304.0" prefWidth="26.0" />
+         </children></AnchorPane>
+    </center>
+</BorderPane>

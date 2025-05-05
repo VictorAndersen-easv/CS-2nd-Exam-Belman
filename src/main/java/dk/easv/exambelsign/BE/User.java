@@ -1,4 +1,4 @@
-package dk.easv.exambelsign;
+package dk.easv.exambelsign.BE;
 
 public class User {
 

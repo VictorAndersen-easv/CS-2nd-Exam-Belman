@@ -1,6 +1,6 @@
 package dk.easv.exambelsign.DAL;
 
-import dk.easv.exambelsign.User;
+import dk.easv.exambelsign.BE.User;
 
 import java.io.IOException;
 import java.sql.*;
