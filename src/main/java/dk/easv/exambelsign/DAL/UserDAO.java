@@ -1,9 +1,12 @@
 package dk.easv.exambelsign.DAL;
 
+import dk.easv.exambelsign.BE.Order;
 import dk.easv.exambelsign.BE.User;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDAO {
 
@@ -12,13 +15,36 @@ public class UserDAO {
     public UserDAO() throws IOException {
     }
 
-    public void getAllUsers() throws Exception {
+    public List<User> getAllUsers() throws Exception {
+
+        ArrayList<User> allUsers = new ArrayList<>();
+
         try (Connection connection = dbConnector.getConnection()) {
             String sql = "SELECT * FROM userstuff";
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery(sql);
+
+            while (rs.next()) {
+                //Get the data from the database
+                String hashedpassword = rs.getString("hashedpassword");
+                String username = rs.getString("username");
+                int userID = rs.getInt("userid");
+                String role = rs.getString("role");
+                String firstname = rs.getString("firstname");
+                String lastname = rs.getString("lastname");
+
+                User userthing = new User(hashedpassword, username, userID, role, firstname, lastname);
+                allUsers.add(userthing);
             }
-    }
+            //Return the list of orders
+            return allUsers;
+
+        } catch (SQLException ex){
+                ex.printStackTrace();
+                throw new Exception("Could not get users from database", ex);
+            }
+        }
+
 
 
         public User createUser (User user) throws Exception {

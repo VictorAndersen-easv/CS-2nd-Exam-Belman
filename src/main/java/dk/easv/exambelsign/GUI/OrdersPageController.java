@@ -33,23 +33,18 @@ public class OrdersPageController {
     @FXML
     private TableColumn<Order, String> apprstatCol;
 
-    private ObservableList<Order> ordersToBeViewed;
+    private ObservableList<Order> ordersToBeViewed = FXCollections.observableArrayList();
 
     OrderDAO odao = new OrderDAO();
 
     public OrdersPageController() throws Exception {
-
-        ObservableList<Order> ordersToBeViewed = FXCollections.observableArrayList();
-        odao.getAllOrders();
-        ordersToBeViewed.addAll(odao.getAllOrders());
-
-
     }
 
     public ObservableList<Order> getObservableOrders() {return ordersToBeViewed;}
 
 
     public void initialize() throws Exception {
+        ordersToBeViewed.addAll(odao.getAllOrders());
         OrderTable.setItems(ordersToBeViewed);
         ordnumCol.setCellValueFactory(new PropertyValueFactory<>("ordernumber"));
         ordnamCol.setCellValueFactory(new PropertyValueFactory<>("ordername"));

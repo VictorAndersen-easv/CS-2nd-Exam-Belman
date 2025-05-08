@@ -29,7 +29,16 @@ public class AdminPageController {
 
 
     @FXML
-    private void UsersBtnClick(ActionEvent actionEvent) {
+    private void UsersBtnClick(ActionEvent event) throws IOException {
+
+        UsersPageController usersPageController = new UsersPageController();
+        Parent loginpage = FXMLLoader.load(getClass().getResource("/dk/easv/exambelsign/userspage.fxml"));
+        Scene scene = new Scene(loginpage);
+        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        appStage.setScene(scene);
+        appStage.show();
+
+
     }
 
     @FXML
@@ -42,7 +51,6 @@ public class AdminPageController {
             appStage.setScene(scene);
             appStage.show();
             ordersPageController.initialize();
-
 
     }
 }
