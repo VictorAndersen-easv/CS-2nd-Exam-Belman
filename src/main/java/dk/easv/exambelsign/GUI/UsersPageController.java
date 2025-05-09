@@ -36,12 +36,13 @@ public class UsersPageController {
 
     @FXML
     private void EditBtnClick(ActionEvent actionEvent) {
+        //Go to fxml page 
     }
 
     @FXML
     private void newUserBtnClick(ActionEvent event) throws IOException {
-        Parent smackem = FXMLLoader.load(getClass().getResource("/dk/easv/exambelsign/newuserpopup.fxml"));
-        Scene scene = new Scene(smackem);
+        Parent newuspop = FXMLLoader.load(getClass().getResource("/dk/easv/exambelsign/newuserpopup.fxml"));
+        Scene scene = new Scene(newuspop);
         Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         appStage.setScene(scene);
         appStage.show();

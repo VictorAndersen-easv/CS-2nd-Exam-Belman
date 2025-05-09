@@ -27,6 +27,13 @@ public class NewUserController {
     @FXML
     private void finalCreateBtnClick(ActionEvent actionEvent) {
 
+        String firstname = firstnameField.getText();
+        String lastname = lastnameField.getText();
+        String username = usernameField.getText();
+        String password = passwordField.getText();
+        String role = roleField.getText();
+
+
     }
 
     @FXML
