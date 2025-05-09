@@ -13,7 +13,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.scene.input.KeyEvent;
 
+
+import javax.swing.*;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -82,6 +85,28 @@ public class LoginController {
             e.printStackTrace();
             e.getCause();
             return false;
+        }
+    }
+    @FXML
+    public void entahButtonPressed(KeyEvent e) throws Exception {
+
+        if(e.getCode().toString().equals("ENTER"))
+        {
+            if (validateLogin()) {
+                invalidLoginTxt.setVisible(false);
+                System.out.println("You are logged in");
+
+                Parent homepage = FXMLLoader.load(getClass().getResource("/dk/easv/exambelsign/adminpage.fxml"));
+                Scene scene = new Scene(homepage);
+                Stage appStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                appStage.setScene(scene);
+                appStage.show();
+
+            }
+
+            else {
+                invalidLoginTxt.setVisible(true);
+            }
         }
     }
 }
