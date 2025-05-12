@@ -16,7 +16,7 @@ public class OrderDAO {
     }
 
     public List<Order> getAllOrders() throws Exception {
-        //this method gets all the movies from the database
+        //this method gets all the orders from the database
         ArrayList<Order> allOrders = new ArrayList<>();
 
         try (Connection connection = dbConnector.getConnection()) {

@@ -32,8 +32,9 @@ public class UserDAO {
                 String role = rs.getString("role");
                 String firstname = rs.getString("firstname");
                 String lastname = rs.getString("lastname");
+                String fullname = rs.getString("firstname") + " " + rs.getString("lastname");
 
-                User userthing = new User(hashedpassword, username, userID, role, firstname, lastname);
+                User userthing = new User(hashedpassword, username, userID, role, firstname, lastname, fullname);
                 allUsers.add(userthing);
             }
             //Return the list of orders
@@ -74,7 +75,7 @@ public class UserDAO {
                     id = rs.getInt(1);
                 }
                 //Create user and send up the layers
-                return new User(user.getPassword(), user.getUsername(), user.getUserID(), user.getRole(), user.getFirstname(), user.getLastname());
+                return new User(user.getPassword(), user.getUsername(), user.getUserID(), user.getRole(), user.getFirstname(), user.getLastname(),user.getFullname());
 
             } catch (SQLException ex) {
                 throw new Exception("Could not get users from database.", ex);
