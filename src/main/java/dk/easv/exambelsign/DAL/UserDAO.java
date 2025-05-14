@@ -62,6 +62,7 @@ public class UserDAO {
                 stmt.setString(4, user.getRole());
                 stmt.setString(5, user.getFirstname());
                 stmt.setString(6, user.getLastname());
+                stmt.setString(7, user.getEmail());
 
 
                 //Run the SQL statement
