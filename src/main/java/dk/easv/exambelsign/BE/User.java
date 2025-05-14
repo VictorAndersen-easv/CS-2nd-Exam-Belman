@@ -9,9 +9,9 @@ public class User {
     private String firstName;
     private String lastName;
     private String fullName;
+    private String email;
 
-
-    public User(String password, String username, int userID, String role, String firstName, String lastName, String fullName) {
+    public User(String password, String username, int userID, String role, String firstName, String lastName, String fullName, String email) {
         this.password = password;
         this.username = username;
         this.userID = userID;
@@ -19,6 +19,7 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.fullName = fullName;
+        this.email = email;
     }
 
 
@@ -47,4 +48,6 @@ public class User {
     }
 
     public String getFullname() {return this.fullName;}
+
+    public String getEmail() {return this.email;}
 }

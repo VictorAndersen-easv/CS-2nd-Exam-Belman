@@ -23,7 +23,7 @@ public class UsersPageController {
 
     @FXML private TableView<User> UserTable;
     @FXML private TableColumn<User, String> usnamCol;
-    @FXML private TableColumn<User, String> passwCol;
+    @FXML private TableColumn<User, String> emailCol;
     @FXML private TableColumn<User, String> fullnamCol;
     @FXML private TableColumn<User, String> rolCol;
 
@@ -42,7 +42,7 @@ public class UsersPageController {
         usersToBeViewed.addAll(udao.getAllUsers());
         UserTable.setItems(usersToBeViewed);
         usnamCol.setCellValueFactory(new PropertyValueFactory<>("username"));
-        passwCol.setCellValueFactory(new PropertyValueFactory<>("password"));
+        emailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
         fullnamCol.setCellValueFactory(new PropertyValueFactory<>("fullname"));
         rolCol.setCellValueFactory(new PropertyValueFactory<>("role"));
         UserTable.setItems(usersToBeViewed);

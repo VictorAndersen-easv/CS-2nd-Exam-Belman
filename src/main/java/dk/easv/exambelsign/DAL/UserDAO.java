@@ -33,8 +33,9 @@ public class UserDAO {
                 String firstname = rs.getString("firstname");
                 String lastname = rs.getString("lastname");
                 String fullname = rs.getString("firstname") + " " + rs.getString("lastname");
+                String email = rs.getString("email");
 
-                User userthing = new User(hashedpassword, username, userID, role, firstname, lastname, fullname);
+                User userthing = new User(hashedpassword, username, userID, role, firstname, lastname, fullname, email);
                 allUsers.add(userthing);
             }
             //Return the list of orders
@@ -47,10 +48,9 @@ public class UserDAO {
         }
 
 
-
         public User createUser (User user) throws Exception {
             // this method helps import the data from User to add to the userstuff table in the sql server
-            String sql = "INSERT INTO dbo.userstuff (hashedpassword,username,userID,role,firstname,lastname) VALUES ( ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO dbo.userstuff (hashedpassword,username,userID,role,firstname,lastname,email) VALUES ( ?, ?, ?, ?, ?, ?, ?)";
             DBConnector dbConnector = new DBConnector();
 
             try (Connection connection = dbConnector.getConnection()) {
@@ -75,7 +75,7 @@ public class UserDAO {
                     id = rs.getInt(1);
                 }
                 //Create user and send up the layers
-                return new User(user.getPassword(), user.getUsername(), user.getUserID(), user.getRole(), user.getFirstname(), user.getLastname(),user.getFullname());
+                return new User(user.getPassword(), user.getUsername(), user.getUserID(), user.getRole(), user.getFirstname(), user.getLastname(),user.getFullname(), user.getEmail());
 
             } catch (SQLException ex) {
                 throw new Exception("Could not get users from database.", ex);

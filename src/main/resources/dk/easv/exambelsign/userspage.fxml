@@ -42,7 +42,7 @@
                 <TableView fx:id="UserTable" prefHeight="302.0" prefWidth="370.0">
                     <columns>
                         <TableColumn fx:id="usnamCol" prefWidth="92.0" text="Username" />
-                        <TableColumn fx:id="passwCol" prefWidth="84.79998779296875" text="Password" />
+                        <TableColumn fx:id="emailCol" prefWidth="84.79998779296875" text="e-mail" />
                         <TableColumn fx:id="fullnamCol" prefWidth="94.39996337890625" text="Full name" />
                         <TableColumn fx:id="rolCol" prefWidth="99.20001220703125" text="Role" />
                     </columns>
