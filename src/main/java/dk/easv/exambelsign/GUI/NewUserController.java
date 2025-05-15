@@ -45,10 +45,10 @@ public class NewUserController {
 
             udao.createUser(new User(BCryptor.bcryption(password), username, userID, role, firstname, lastname, fullname, email));
 
-            System.out.println("you dun made a guy");
+            System.out.println("you made a user");
         }
         catch (Exception e) {
-            System.out.println("ah shit its all fucked up");
+            System.out.println("something went wrong");
         }
 
     }

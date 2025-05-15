@@ -84,9 +84,12 @@ public class OrdersPageController {
 
     }
 
-
-
-
-
-
+    @FXML
+    public void neworderBtnClick(ActionEvent event) throws IOException {
+        Parent newordpop = FXMLLoader.load(getClass().getResource("/dk/easv/exambelsign/neworderpopup.fxml"));
+        Scene scene = new Scene(newordpop);
+        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        appStage.setScene(scene);
+        appStage.show();
+    }
 }
