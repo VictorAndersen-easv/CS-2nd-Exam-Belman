@@ -12,8 +12,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 
 
@@ -23,6 +25,17 @@ public class NewOrderController {
     @FXML private TextField nameField;
     @FXML private TextField apprbyField;
     @FXML private TextField apprstatField;
+    @FXML private TextField photoField;
+
+
+    private void PNGpressed(){
+        //This is to add .png to the address so that the user doesn't have to write it
+        String currentText = photoField.getText();
+        if (!currentText.toLowerCase().endsWith(".png")) {
+            currentText += ".png";
+        }
+        photoField.setText(currentText);
+    }
 
 
 
@@ -54,4 +67,22 @@ public class NewOrderController {
         appStage.show();
     }
 
+    @FXML
+    private void selectBtnClick(ActionEvent actionEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.png"));
+
+        File selectedFile = fileChooser.showOpenDialog(null);
+
+        if (selectedFile != null) {
+            photoField.setText(selectedFile.getAbsolutePath()); //Store absolute path
+
+            String filename = selectedFile.getName().toLowerCase();
+            if (filename.endsWith(".png")) {
+                PNGpressed();
+            }
+
+        }
+
+    }
 }
