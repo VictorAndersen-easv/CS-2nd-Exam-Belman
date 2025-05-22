@@ -30,8 +30,9 @@ public class OrderDAO {
                 String ordername = rs.getString("ordername");
                 String approvedby = rs.getString("approvedby");
                 String approvalstatus = rs.getString("approvalstatus");
+                String photoadress = rs.getString("photoaddress");
 
-                Order orderthing = new Order(ordernumber, ordername, approvedby, approvalstatus);
+                Order orderthing = new Order(ordernumber, ordername, approvedby, approvalstatus, photoadress);
                 allOrders.add(orderthing);
             }
             //Return the list of orders
@@ -68,7 +69,7 @@ public class OrderDAO {
                 id = rs.getInt(1);
             }
             //Create user and send up the layers
-            return new Order(order.getOrdernumber(), order.getOrdername(), order.getApprovedby(), order.getApprovalstatus());
+            return new Order(order.getOrdernumber(), order.getOrdername(), order.getApprovedby(), order.getApprovalstatus(), order.getPhotoaddress());
 
         } catch (SQLException ex) {
             throw new Exception("Could not get orders from database.", ex);

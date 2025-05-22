@@ -29,7 +29,7 @@ public class NewOrderController {
 
 
     private void PNGpressed(){
-        //This is to add .png to the address so that the user doesn't have to write it
+        //This adds .png to the address so the user doesn't have to write it
         String currentText = photoField.getText();
         if (!currentText.toLowerCase().endsWith(".png")) {
             currentText += ".png";
@@ -48,9 +48,10 @@ public class NewOrderController {
             String ordername = nameField.getText();
             String apprby = apprbyField.getText();
             String apprstat = apprstatField.getText();
+            String photoaddress = photoField.getText();
 
 
-            odao.createOrder(new Order(ordernumber,ordername,apprby,apprstat));
+            odao.createOrder(new Order(ordernumber,ordername,apprby,apprstat,photoaddress));
 
             System.out.println("you made an order");
         }

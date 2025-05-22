@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.exambelsign.GUI.OrdersPageController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.exambelsign.GUI.OrdersPageController">
     <top>
         <AnchorPane prefHeight="91.0" prefWidth="600.0" style="-fx-background-color: #004b88;" BorderPane.alignment="CENTER">
             <children>
@@ -31,8 +31,8 @@
     <left>
         <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="InspectPhotosBtn" layoutX="14.0" layoutY="21.0" mnemonicParsing="false" text="Inspect Photos" />
-            <Button layoutX="14.0" layoutY="62.0" mnemonicParsing="false" text="Inspect User" />
+            <Button fx:id="inspectPhotosBtn" layoutX="14.0" layoutY="21.0" mnemonicParsing="false" onAction="#inspectPhotosBtnClick" text="Inspect Photos" />
+            <Button fx:id="inspectUserBtn" layoutX="14.0" layoutY="62.0" mnemonicParsing="false" onAction="#inspectUserBtnClick" text="Inspect User" />
             <Button fx:id="EditBtn" layoutX="14.0" layoutY="103.0" mnemonicParsing="false" onAction="#EditBtnClick" text="Edit / Approve" />
             <Button fx:id="neworderBtn" layoutX="14.0" layoutY="141.0" mnemonicParsing="false" onAction="#neworderBtnClick" text="Add new Order" />
          </children></AnchorPane>

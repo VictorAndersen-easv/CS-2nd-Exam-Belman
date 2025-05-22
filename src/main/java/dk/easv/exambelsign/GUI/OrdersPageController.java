@@ -17,8 +17,12 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.sql.*;
+import java.time.LocalDateTime;
 
 public class OrdersPageController {
 
@@ -92,4 +96,33 @@ public class OrdersPageController {
         appStage.setScene(scene);
         appStage.show();
     }
+
+    @FXML
+    private void inspectPhotosBtnClick(ActionEvent actionEvent) {
+        Order selectedOrder = (Order) OrderTable.getSelectionModel().getSelectedItem();
+        if (selectedOrder != null) {
+            File file = new File("src/main/resources/" + selectedOrder.getPhotoaddress());
+            if (Desktop.isDesktopSupported()) {
+                try {
+                    //Opens the movie file using the default system application
+                    Desktop.getDesktop().open(file);
+                    refreshOrders();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @FXML
+    private void inspectUserBtnClick(ActionEvent actionEvent) {
+    }
+
+    private void refreshOrders() throws Exception {
+        ordersToBeViewed.clear();
+        ordersToBeViewed.addAll(odao.getAllOrders());
+    }
+
 }
