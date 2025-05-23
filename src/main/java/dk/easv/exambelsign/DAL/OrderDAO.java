@@ -30,9 +30,9 @@ public class OrderDAO {
                 String ordername = rs.getString("ordername");
                 String approvedby = rs.getString("approvedby");
                 String approvalstatus = rs.getString("approvalstatus");
-                String photoadress = rs.getString("photoaddress");
+                String photoaddress = rs.getString("photoaddress");
 
-                Order orderthing = new Order(ordernumber, ordername, approvedby, approvalstatus, photoadress);
+                Order orderthing = new Order(ordernumber, ordername, approvedby, approvalstatus, photoaddress);
                 allOrders.add(orderthing);
             }
             //Return the list of orders
@@ -46,7 +46,7 @@ public class OrderDAO {
 
     public Order createOrder (Order order) throws Exception {
         // this method helps import the data from Order to add to the orderstuff table in the sql server
-        String sql = "INSERT INTO dbo.orderstuff (ordernumber, ordername, approvedby, approvalstatus) VALUES ( ?, ?, ?, ?)";
+        String sql = "INSERT INTO dbo.orderstuff (ordernumber, ordername, approvedby, approvalstatus, photoaddress) VALUES ( ?, ?, ?, ?, ?)";
         DBConnector dbConnector = new DBConnector();
 
         try (Connection connection = dbConnector.getConnection()) {
@@ -56,6 +56,7 @@ public class OrderDAO {
             stmt.setString(2, order.getOrdername());
             stmt.setString(3, order.getApprovedby());
             stmt.setString(4, order.getApprovalstatus());
+            stmt.setString(5, order.getPhotoaddress());
 
 
             //Run the SQL statement

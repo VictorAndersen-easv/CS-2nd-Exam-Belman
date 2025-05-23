@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -21,10 +22,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.*;
 import java.time.LocalDateTime;
+import java.util.ResourceBundle;
 
-public class OrdersPageController {
+public class OrdersPageController implements Initializable {
 
     @FXML
     private TableView<Order> OrderTable;
@@ -46,18 +49,25 @@ public class OrdersPageController {
 
     public ObservableList<Order> getObservableOrders() {return ordersToBeViewed;}
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        try {
+            ordersToBeViewed.addAll(odao.getAllOrders());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
-    public void initialize() throws Exception {
-        ordersToBeViewed.addAll(odao.getAllOrders());
-        OrderTable.setItems(ordersToBeViewed);
         ordnumCol.setCellValueFactory(new PropertyValueFactory<>("ordernumber"));
         ordnamCol.setCellValueFactory(new PropertyValueFactory<>("ordername"));
         apprbyCol.setCellValueFactory(new PropertyValueFactory<>("approvedby"));
         apprstatCol.setCellValueFactory(new PropertyValueFactory<>("approvalstatus"));
         OrderTable.setItems(ordersToBeViewed);
-
-
     }
+
+
+
+
+
 
 
 
@@ -82,9 +92,13 @@ public class OrdersPageController {
     }
 
     @FXML
-    private void EditBtnClick(ActionEvent event) {
-        //Add code that uses a pop-up window here
+    private void EditBtnClick(ActionEvent event) throws IOException {
 
+        Parent editordpop = FXMLLoader.load(getClass().getResource("/dk/easv/exambelsign/editorderpopup.fxml"));
+        Scene scene = new Scene(editordpop);
+        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        appStage.setScene(scene);
+        appStage.show();
 
     }
 
@@ -101,10 +115,10 @@ public class OrdersPageController {
     private void inspectPhotosBtnClick(ActionEvent actionEvent) {
         Order selectedOrder = (Order) OrderTable.getSelectionModel().getSelectedItem();
         if (selectedOrder != null) {
-            File file = new File("src/main/resources/" + selectedOrder.getPhotoaddress());
+            File file = new File(selectedOrder.getPhotoaddress());
             if (Desktop.isDesktopSupported()) {
                 try {
-                    //Opens the movie file using the default system application
+                    //Opens the photo file using the default system application
                     Desktop.getDesktop().open(file);
                     refreshOrders();
                 } catch (IOException e) {
@@ -124,5 +138,6 @@ public class OrdersPageController {
         ordersToBeViewed.clear();
         ordersToBeViewed.addAll(odao.getAllOrders());
     }
+
 
 }

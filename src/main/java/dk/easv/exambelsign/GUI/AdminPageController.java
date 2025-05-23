@@ -50,7 +50,6 @@ public class AdminPageController {
             Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             appStage.setScene(scene);
             appStage.show();
-            ordersPageController.initialize();
 
     }
 }

@@ -76,12 +76,12 @@ public class NewOrderController {
         File selectedFile = fileChooser.showOpenDialog(null);
 
         if (selectedFile != null) {
-            photoField.setText(selectedFile.getAbsolutePath()); //Store absolute path
+            photoField.setText("SavedPics/" + selectedFile.getName()); //Store absolute path
 
-            String filename = selectedFile.getName().toLowerCase();
-            if (filename.endsWith(".png")) {
-                PNGpressed();
-            }
+//            String filename = selectedFile.getName().toLowerCase();
+//            if (filename.endsWith(".png")) {
+//                PNGpressed();
+//            }
 
         }
 
