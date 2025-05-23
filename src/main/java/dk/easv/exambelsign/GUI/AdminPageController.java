@@ -4,16 +4,25 @@ import dk.easv.exambelsign.BE.Order;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
-public class AdminPageController {
+public class AdminPageController implements Initializable {
 
+
+    @FXML
+    private ImageView image;
 
     public void logoutBtnClick(ActionEvent event) throws Exception {
 
@@ -51,5 +60,11 @@ public class AdminPageController {
             appStage.setScene(scene);
             appStage.show();
 
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        Image belmanImg = new Image(new File("C:\\Users\\Victor\\IdeaProjects\\CS-2nd-Exam-Belman\\Images\\Belman-expansion-joints_6_BELMAN.jpg").toURI().toString());
+       image.setImage(belmanImg);
     }
 }

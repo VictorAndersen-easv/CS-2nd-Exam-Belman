@@ -41,10 +41,8 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="306.0" fitWidth="400.0" layoutY="1.0" pickOnBounds="true">
-               <image>
-                  <Image url="@../../../../../../Images/Belman-expansion-joints_6_BELMAN.jpg" />
-               </image>
+            <ImageView fx:id="image" fitHeight="306.0" fitWidth="400.0" layoutY="1.0" pickOnBounds="true">
+               <image></image>
             </ImageView>
          </children></AnchorPane>
    </center>
