@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,8 +19,10 @@ import javafx.stage.Popup;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class UsersPageController {
+public class UsersPageController implements Initializable {
 
     @FXML private TableView<User> UserTable;
     @FXML private TableColumn<User, String> usnamCol;
@@ -37,16 +40,6 @@ public class UsersPageController {
 
     }
     public ObservableList<User> getObservableUsers() {return usersToBeViewed;}
-
-    public void initialize() throws Exception {
-        usersToBeViewed.addAll(udao.getAllUsers());
-        UserTable.setItems(usersToBeViewed);
-        usnamCol.setCellValueFactory(new PropertyValueFactory<>("username"));
-        emailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
-        fullnamCol.setCellValueFactory(new PropertyValueFactory<>("fullname"));
-        rolCol.setCellValueFactory(new PropertyValueFactory<>("role"));
-        UserTable.setItems(usersToBeViewed);
-    }
 
 
     @FXML
@@ -81,5 +74,20 @@ public class UsersPageController {
         Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         appStage.setScene(scene);
         appStage.show();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        try {
+            usersToBeViewed.addAll(udao.getAllUsers());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        usnamCol.setCellValueFactory(new PropertyValueFactory<>("username"));
+        emailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
+        fullnamCol.setCellValueFactory(new PropertyValueFactory<>("fullname"));
+        rolCol.setCellValueFactory(new PropertyValueFactory<>("role"));
+        UserTable.setItems(usersToBeViewed);
     }
 }

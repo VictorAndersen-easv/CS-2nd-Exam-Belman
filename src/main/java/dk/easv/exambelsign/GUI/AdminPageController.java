@@ -46,7 +46,6 @@ public class AdminPageController implements Initializable {
         Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         appStage.setScene(scene);
         appStage.show();
-        usersPageController.initialize();
 
     }
 
