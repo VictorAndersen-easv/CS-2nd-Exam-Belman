@@ -31,8 +31,8 @@
     <left>
         <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
-                <Button layoutX="14.0" layoutY="62.0" mnemonicParsing="false" text="Inspect User" />
-                <Button fx:id="EditBtn" layoutX="14.0" layoutY="103.0" mnemonicParsing="false" onAction="#EditBtnClick" text="Edit User" />
+                <Button fx:id="inspectUserBtn" layoutX="14.0" layoutY="62.0" mnemonicParsing="false" text="Inspect User" />
+                <Button fx:id="editBtn" layoutX="14.0" layoutY="103.0" mnemonicParsing="false" onAction="#EditBtnClick" text="Edit User" />
                 <Button fx:id="addNewUserBtn" layoutX="14.0" layoutY="141.0" mnemonicParsing="false" onAction="#newUserBtnClick" text="Add New User" />
             </children></AnchorPane>
     </left>

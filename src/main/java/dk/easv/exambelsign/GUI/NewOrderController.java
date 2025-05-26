@@ -8,24 +8,29 @@ import dk.easv.exambelsign.DAL.UserDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
-public class NewOrderController {
+public class NewOrderController implements Initializable {
 
     @FXML private TextField numberField;
     @FXML private TextField nameField;
     @FXML private TextField apprbyField;
     @FXML private TextField apprstatField;
     @FXML private TextField photoField;
+    @FXML private Label messageLabel;
 
 
     private void PNGpressed(){
@@ -54,9 +59,13 @@ public class NewOrderController {
             odao.createOrder(new Order(ordernumber,ordername,apprby,apprstat,photoaddress));
 
             System.out.println("you made an order");
+            messageLabel.setText("Order successfully created");
+            messageLabel.setVisible(true);
         }
         catch (Exception e) {
             System.out.println("something went wrong");
+            messageLabel.setText("Error: Something went wrong");
+            messageLabel.setVisible(true);
         }
     }
 
@@ -85,5 +94,10 @@ public class NewOrderController {
 
         }
 
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        messageLabel.setVisible(false);
     }
 }

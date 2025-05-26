@@ -2,9 +2,13 @@ package dk.easv.exambelsign.GUI;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 
 public class EditOrderController {
 
+
+    @FXML
+    private Button finalCreateBtn;
 
     @FXML
     private void finalCreateBtnClick(ActionEvent actionEvent) {

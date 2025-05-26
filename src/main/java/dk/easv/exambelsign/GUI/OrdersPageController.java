@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -29,20 +30,21 @@ import java.util.ResourceBundle;
 
 public class OrdersPageController implements Initializable {
 
-    @FXML
-    private TableView<Order> OrderTable;
-    @FXML
-    private TableColumn<Order, Integer> ordnumCol;
-    @FXML
-    private TableColumn<Order, String> ordnamCol;
-    @FXML
-    private TableColumn<Order, String> apprbyCol;
-    @FXML
-    private TableColumn<Order, String> apprstatCol;
+    @FXML private TableView<Order> OrderTable;
+    @FXML private TableColumn<Order, Integer> ordnumCol;
+    @FXML private TableColumn<Order, String> ordnamCol;
+    @FXML private TableColumn<Order, String> apprbyCol;
+    @FXML private TableColumn<Order, String> apprstatCol;
+
+    @FXML private Button inspectPhotosBtn;
+    @FXML private Button inspectUserBtn;
+    @FXML private Button editBtn;
+    @FXML private Button neworderBtn;
 
     private ObservableList<Order> ordersToBeViewed = FXCollections.observableArrayList();
 
     OrderDAO odao = new OrderDAO();
+
 
     public OrdersPageController() throws Exception {
     }
@@ -62,14 +64,11 @@ public class OrdersPageController implements Initializable {
         apprbyCol.setCellValueFactory(new PropertyValueFactory<>("approvedby"));
         apprstatCol.setCellValueFactory(new PropertyValueFactory<>("approvalstatus"));
         OrderTable.setItems(ordersToBeViewed);
+
+        inspectUserBtn.setVisible(false);
+        editBtn.setVisible(false);
+
     }
-
-
-
-
-
-
-
 
 
     public void logoutBtnClick(ActionEvent event) throws IOException {

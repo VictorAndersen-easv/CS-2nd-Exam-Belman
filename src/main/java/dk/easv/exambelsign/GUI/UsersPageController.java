@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -30,10 +31,16 @@ public class UsersPageController implements Initializable {
     @FXML private TableColumn<User, String> fullnamCol;
     @FXML private TableColumn<User, String> rolCol;
 
+    @FXML private Button logoutBtn;
+    @FXML private Button HomeBtn;
+    @FXML private Button editBtn;
+    @FXML private Button addNewUserBtn;
+    @FXML private Button inspectUserBtn;
 
     private ObservableList<User> usersToBeViewed = FXCollections.observableArrayList();
 
     UserDAO udao = new UserDAO();
+
 
 
     public UsersPageController() throws IOException {
@@ -89,5 +96,8 @@ public class UsersPageController implements Initializable {
         fullnamCol.setCellValueFactory(new PropertyValueFactory<>("fullname"));
         rolCol.setCellValueFactory(new PropertyValueFactory<>("role"));
         UserTable.setItems(usersToBeViewed);
+
+        editBtn.setVisible(false);
+        inspectUserBtn.setVisible(false);
     }
 }
