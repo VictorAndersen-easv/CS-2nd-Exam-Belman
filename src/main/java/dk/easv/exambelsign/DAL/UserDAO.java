@@ -15,6 +15,7 @@ public class UserDAO {
     public UserDAO() throws IOException {
     }
 
+
     public List<User> getAllUsers() throws Exception {
 
         ArrayList<User> allUsers = new ArrayList<>();

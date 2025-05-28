@@ -41,7 +41,7 @@ public class NewUserController implements Initializable {
 
             String password = passwordField.getText();
             String username = usernameField.getText();
-            int userID = 2;
+            int userID = 3;
             String role = roleField.getText();
             String firstname = firstnameField.getText();
             String lastname = lastnameField.getText();
@@ -53,6 +53,7 @@ public class NewUserController implements Initializable {
             System.out.println("you made a user");
             messageLabel.setText("User successfully created.");
             messageLabel.setVisible(true);
+
         }
         catch (Exception e) {
             System.out.println("something went wrong");
