@@ -9,7 +9,11 @@ public class Image {
     private int orderID = 0;
 
 
-    public Image(){
+    public Image(int id,String path,int orderID) {
+
+        this.id = id;
+        this.path = path;
+        this.orderID = orderID;
 
     }
 
