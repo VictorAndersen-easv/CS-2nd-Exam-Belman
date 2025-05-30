@@ -6,29 +6,29 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane prefHeight="484.0" prefWidth="686.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.exambelsign.GUI.PhotosController">
+<AnchorPane prefHeight="498.0" prefWidth="686.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.exambelsign.GUI.PhotosController">
    <children>
-      <ImageView fx:id="FirstImage" fitHeight="150.0" fitWidth="200.0" layoutX="23.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="SecondImage" fitHeight="150.0" fitWidth="200.0" layoutX="231.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="ThirdImage" fitHeight="150.0" fitWidth="200.0" layoutX="461.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="SixthImage" fitHeight="150.0" fitWidth="200.0" layoutX="452.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="FifthImage" fitHeight="150.0" fitWidth="200.0" layoutX="243.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="FourthImage" fitHeight="150.0" fitWidth="200.0" layoutX="23.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true" />
-      <HBox layoutY="388.0" prefHeight="100.0" prefWidth="686.0">
+      <ImageView fx:id="FrontPhoto" fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="40.0" pickOnBounds="true" />
+      <ImageView fx:id="LeftPhoto" fitHeight="150.0" fitWidth="200.0" layoutX="243.0" layoutY="40.0" pickOnBounds="true" />
+      <ImageView fx:id="RightPhoto" fitHeight="150.0" fitWidth="200.0" layoutX="461.0" layoutY="40.0" pickOnBounds="true" />
+      <ImageView fx:id="BottomPhoto" fitHeight="150.0" fitWidth="200.0" layoutX="461.0" layoutY="243.0" pickOnBounds="true" />
+      <ImageView fx:id="BackPhoto" fitHeight="150.0" fitWidth="200.0" layoutX="243.0" layoutY="243.0" pickOnBounds="true" />
+      <ImageView fx:id="TopPhoto" fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="243.0" pickOnBounds="true" />
+      <HBox layoutY="408.0" prefHeight="90.0" prefWidth="686.0">
          <children>
-            <AnchorPane prefHeight="89.0" prefWidth="686.0" style="-fx-background-color: #004b88;">
+            <AnchorPane prefHeight="127.0" prefWidth="686.0" style="-fx-background-color: #004b88;">
                <children>
-                  <Button fx:id="returnBtn" layoutX="240.0" layoutY="37.0" mnemonicParsing="false" text="Return" />
-                  <Button fx:id="InspectBtn" layoutX="343.0" layoutY="37.0" mnemonicParsing="false" text="Inspect Selected" />
+                  <Button fx:id="returnBtn" layoutX="240.0" layoutY="37.0" mnemonicParsing="false" onAction="#returnBtnClick" text="Return" />
+                  <Button fx:id="InspectBtn" layoutX="343.0" layoutY="37.0" mnemonicParsing="false" onAction="#InspectBtnClick" text="Inspect Selected" />
                </children>
             </AnchorPane>
          </children>
       </HBox>
-      <Label layoutX="67.0" layoutY="13.0" text="Top Photo" />
+      <Label layoutX="71.0" layoutY="13.0" text="Front Photo" />
       <Label layoutX="315.0" layoutY="13.0" text="Left Photo" />
       <Label layoutX="533.0" layoutY="13.0" text="Right Photo" />
-      <Label layoutX="67.0" layoutY="172.0" text="Front Photo" />
-      <Label layoutX="315.0" layoutY="172.0" text="Back Photo" />
-      <Label layoutX="537.0" layoutY="172.0" text="Bottom Photo" />
+      <Label layoutX="67.0" layoutY="204.0" text="Top Photo" />
+      <Label layoutX="313.0" layoutY="204.0" text="Back Photo" />
+      <Label layoutX="527.0" layoutY="204.0" text="Bottom Photo" />
    </children>
 </AnchorPane>

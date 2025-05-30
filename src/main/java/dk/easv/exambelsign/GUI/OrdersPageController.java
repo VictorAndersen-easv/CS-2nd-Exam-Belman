@@ -41,6 +41,7 @@ public class OrdersPageController implements Initializable {
     OrderDAO odao = new OrderDAO();
 
 
+
     public OrdersPageController() throws Exception {
     }
 
@@ -106,22 +107,22 @@ public class OrdersPageController implements Initializable {
     }
 
     @FXML
-    private void inspectPhotosBtnClick(ActionEvent actionEvent) {
-        Order selectedOrder = (Order) OrderTable.getSelectionModel().getSelectedItem();
-        if (selectedOrder != null) {
-            File file = new File(selectedOrder.getPhotoaddress());
-            if (Desktop.isDesktopSupported()) {
-                try {
-                    //Opens the photo file using the default system application
-                    Desktop.getDesktop().open(file);
-                    refreshOrders();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
+    private void inspectPhotosBtnClick(ActionEvent actionEvent) throws IOException {
+
+        Order selectedOrder = OrderTable.getSelectionModel().getSelectedItem();
+        if (selectedOrder == null){
+            return;
         }
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/dk/easv/exambelsign/photosview.fxml"));
+        Parent root = loader.load();
+
+        PhotosController photosController = loader.getController();
+        photosController.setSelectedOrder(selectedOrder);
+
+        Stage appStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        appStage.setScene(new Scene(root));
+        appStage.show();
     }
 
     @FXML
@@ -132,6 +133,9 @@ public class OrdersPageController implements Initializable {
         ordersToBeViewed.clear();
         ordersToBeViewed.addAll(odao.getAllOrders());
     }
+
+
+
 
 
 }
