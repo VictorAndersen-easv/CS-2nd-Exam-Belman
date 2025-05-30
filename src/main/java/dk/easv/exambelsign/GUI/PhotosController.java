@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -23,6 +24,8 @@ import java.util.ResourceBundle;
 public class PhotosController implements Initializable {
 
     Order selectedOrder = null;
+
+    public Button InspectBtn;
 
     public ImageView FrontPhoto;
     public ImageView LeftPhoto;
@@ -41,7 +44,7 @@ public class PhotosController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        InspectBtn.setVisible(false);
 
     }
 
@@ -98,6 +101,6 @@ public class PhotosController implements Initializable {
 
     @FXML
     private void InspectBtnClick(ActionEvent actionEvent) {
-        
+
     }
 }
