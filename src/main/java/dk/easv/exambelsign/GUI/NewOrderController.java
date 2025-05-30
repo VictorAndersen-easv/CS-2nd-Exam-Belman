@@ -54,7 +54,7 @@ public class NewOrderController implements Initializable {
             String ordername = nameField.getText();
             String apprby = apprbyField.getText();
             String apprstat = apprstatField.getText();
-            String photoaddress = photoField.getText();
+            String photoaddress = "unused";
             String frontphoto = frontphotoField.getText();
             String leftphoto = leftphotoField.getText();
             String rightphoto = rightphotoField.getText();

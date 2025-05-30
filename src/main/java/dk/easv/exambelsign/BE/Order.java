@@ -16,7 +16,10 @@ public class Order {
 
 
 
-    public Order(int ordernumber, String ordername, String approvedby, String approvalstatus,String photoaddress, String frontphoto, String leftphoto, String rightphoto, String topphoto, String bottomphoto, String backphoto) {
+    public Order(int ordernumber, String ordername, String approvedby, String approvalstatus,
+                 String photoaddress, String frontphoto, String leftphoto, String rightphoto,
+                 String topphoto, String bottomphoto, String backphoto) {
+
         this.ordernumber = ordernumber;
         this.ordername = ordername;
         this.approvedby = approvedby;
@@ -34,7 +37,7 @@ public class Order {
     public String getOrdername() { return this.ordername; }
     public String getApprovedby() { return this.approvedby; }
     public String getApprovalstatus() { return this.approvalstatus; }
-    public String getPhotoaddress() { return this.frontphoto; }
+    public String getPhotoaddress() { return this.photoaddress; }
     public String getFrontphoto() { return this.frontphoto; }
     public String getLeftphoto() { return this.leftphoto; }
     public String getRightphoto() { return this.rightphoto; }
