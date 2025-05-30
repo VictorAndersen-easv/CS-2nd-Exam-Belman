@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
@@ -25,23 +26,23 @@ import java.util.ResourceBundle;
 
 public class NewOrderController implements Initializable {
 
+    @FXML private Label messageLabel;
+
     @FXML private TextField numberField;
     @FXML private TextField nameField;
     @FXML private TextField apprbyField;
     @FXML private TextField apprstatField;
     @FXML private TextField photoField;
-    @FXML private Label messageLabel;
+    @FXML private TextField frontphotoField;
+    @FXML private TextField leftphotoField;
+    @FXML private TextField rightphotoField;
+    @FXML private TextField topphotoField;
+    @FXML private TextField backphotoField;
+    @FXML private TextField bottomphotoField;
 
-
-    private void PNGpressed(){
-        //This adds .png to the address so the user doesn't have to write it
-        String currentText = photoField.getText();
-        if (!currentText.toLowerCase().endsWith(".png")) {
-            currentText += ".png";
-        }
-        photoField.setText(currentText);
-    }
-
+    @FXML private Button frontselectBtn;
+    @FXML private Button cancelBtn;
+    @FXML private Button finalCreateBtn;
 
 
     public void finalCreateBtnClick(ActionEvent event) {
@@ -54,9 +55,15 @@ public class NewOrderController implements Initializable {
             String apprby = apprbyField.getText();
             String apprstat = apprstatField.getText();
             String photoaddress = photoField.getText();
+            String frontphoto = frontphotoField.getText();
+            String leftphoto = leftphotoField.getText();
+            String rightphoto = rightphotoField.getText();
+            String topphoto = topphotoField.getText();
+            String backphoto = backphotoField.getText();
+            String bottomphoto = bottomphotoField.getText();
 
 
-            odao.createOrder(new Order(ordernumber,ordername,apprby,apprstat,photoaddress));
+            odao.createOrder(new Order(ordernumber,ordername,apprby,apprstat,photoaddress,frontphoto,leftphoto,rightphoto,topphoto,backphoto,bottomphoto));
 
             System.out.println("you made an order");
             messageLabel.setText("Order successfully created");
@@ -77,27 +84,83 @@ public class NewOrderController implements Initializable {
         appStage.show();
     }
 
+
+
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        messageLabel.setVisible(false);
+    }
+
     @FXML
-    private void selectBtnClick(ActionEvent actionEvent) {
+    private void frontselectBtnClick(ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.png"));
 
         File selectedFile = fileChooser.showOpenDialog(null);
 
         if (selectedFile != null) {
-            photoField.setText("SavedPics/" + selectedFile.getName()); //Store absolute path
-
-//            String filename = selectedFile.getName().toLowerCase();
-//            if (filename.endsWith(".png")) {
-//                PNGpressed();
-//            }
-
+            frontphotoField.setText("SavedPics/" + selectedFile.getName()); //Store relative path
         }
-
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        messageLabel.setVisible(false);
+    @FXML
+    private void leftselectBtnClick(ActionEvent actionEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.png"));
+
+        File selectedFile = fileChooser.showOpenDialog(null);
+
+        if (selectedFile != null) {
+            leftphotoField.setText("SavedPics/" + selectedFile.getName()); //Store relative path
+        }
+    }
+
+    @FXML
+    private void rightselectBtnClick(ActionEvent actionEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.png"));
+
+        File selectedFile = fileChooser.showOpenDialog(null);
+
+        if (selectedFile != null) {
+            rightphotoField.setText("SavedPics/" + selectedFile.getName()); //Store relative path
+        }
+    }
+
+    @FXML
+    private void topselectBtnClick(ActionEvent actionEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.png"));
+
+        File selectedFile = fileChooser.showOpenDialog(null);
+
+        if (selectedFile != null) {
+            topphotoField.setText("SavedPics/" + selectedFile.getName()); //Store relative path
+        }
+    }
+
+    @FXML
+    private void backselectBtnClick(ActionEvent actionEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.png"));
+
+        File selectedFile = fileChooser.showOpenDialog(null);
+
+        if (selectedFile != null) {
+            backphotoField.setText("SavedPics/" + selectedFile.getName()); //Store relative path
+        }
+    }
+
+    @FXML
+    private void bottomselectBtnClick(ActionEvent actionEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.png"));
+
+        File selectedFile = fileChooser.showOpenDialog(null);
+
+        if (selectedFile != null) {
+            bottomphotoField.setText("SavedPics/" + selectedFile.getName()); //Store relative path
+        }
     }
 }

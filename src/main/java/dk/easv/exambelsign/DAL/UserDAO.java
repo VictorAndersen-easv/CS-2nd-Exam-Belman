@@ -76,7 +76,7 @@ public class UserDAO {
                 if (rs.next()) {
                     id = rs.getInt(1);
                 }
-                //Create user and send up the layers
+
                 return new User(user.getPassword(), user.getUsername(), user.getUserID(), user.getRole(), user.getFirstname(), user.getLastname(),user.getFullname(), user.getEmail());
 
             } catch (SQLException ex) {

@@ -1,7 +1,6 @@
 package dk.easv.exambelsign.DAL;
 
 import dk.easv.exambelsign.BE.Order;
-import dk.easv.exambelsign.BE.User;
 
 import java.io.IOException;
 import java.sql.*;
@@ -31,8 +30,14 @@ public class OrderDAO {
                 String approvedby = rs.getString("approvedby");
                 String approvalstatus = rs.getString("approvalstatus");
                 String photoaddress = rs.getString("photoaddress");
+                String frontphoto = rs.getString("frontphoto");
+                String leftphoto = rs.getString("leftphoto");
+                String rightphoto = rs.getString("rightphoto");
+                String topphoto = rs.getString("topphoto");
+                String bottomphoto = rs.getString("bottomphoto");
+                String backphoto = rs.getString("backphoto");
 
-                Order orderthing = new Order(ordernumber, ordername, approvedby, approvalstatus, photoaddress);
+                Order orderthing = new Order(ordernumber, ordername, approvedby, approvalstatus, photoaddress, frontphoto, leftphoto, rightphoto, topphoto, backphoto, bottomphoto);
                 allOrders.add(orderthing);
             }
             //Return the list of orders
@@ -46,7 +51,7 @@ public class OrderDAO {
 
     public Order createOrder (Order order) throws Exception {
         // this method helps import the data from Order to add to the orderstuff table in the sql server
-        String sql = "INSERT INTO dbo.orderstuff (ordernumber, ordername, approvedby, approvalstatus, photoaddress) VALUES ( ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO dbo.orderstuff (ordernumber, ordername, approvedby, approvalstatus, photoaddress, frontphoto, leftphoto, rightphoto, topphoto, backphoto, bottomphoto) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         DBConnector dbConnector = new DBConnector();
 
         try (Connection connection = dbConnector.getConnection()) {
@@ -57,6 +62,12 @@ public class OrderDAO {
             stmt.setString(3, order.getApprovedby());
             stmt.setString(4, order.getApprovalstatus());
             stmt.setString(5, order.getPhotoaddress());
+            stmt.setString(6, order.getFrontphoto());
+            stmt.setString(7, order.getLeftphoto());
+            stmt.setString(8, order.getRightphoto());
+            stmt.setString(9, order.getTopphoto());
+            stmt.setString(10, order.getBackphoto());
+            stmt.setString(11, order.getBottomphoto());
 
 
             //Run the SQL statement
@@ -69,8 +80,19 @@ public class OrderDAO {
             if (rs.next()) {
                 id = rs.getInt(1);
             }
-            //Create user and send up the layers
-            return new Order(order.getOrdernumber(), order.getOrdername(), order.getApprovedby(), order.getApprovalstatus(), order.getPhotoaddress());
+
+            return new Order(order.getOrdernumber(),
+                                order.getOrdername(),
+                                order.getApprovedby(),
+                                order.getApprovalstatus(),
+                                order.getPhotoaddress(),
+                                order.getFrontphoto(),
+                                order.getLeftphoto(),
+                                order.getRightphoto(),
+                                order.getTopphoto(),
+                                order.getBackphoto(),
+                                order.getBottomphoto());
+
 
         } catch (SQLException ex) {
             throw new Exception("Could not get orders from database.", ex);

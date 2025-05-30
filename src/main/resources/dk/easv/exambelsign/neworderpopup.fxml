@@ -6,22 +6,37 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="394.0" prefWidth="293.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.exambelsign.GUI.NewOrderController">
+<AnchorPane prefHeight="495.0" prefWidth="454.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.exambelsign.GUI.NewOrderController">
     <children>
         <Text layoutX="118.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Order" />
-        <TextField fx:id="numberField" layoutX="95.0" layoutY="74.0" prefHeight="26.0" prefWidth="102.0" />
-        <TextField fx:id="nameField" layoutX="95.0" layoutY="110.0" prefHeight="26.0" prefWidth="102.0" />
-        <TextField fx:id="apprbyField" layoutX="95.0" layoutY="141.0" prefHeight="26.0" prefWidth="102.0" />
-        <TextField fx:id="apprstatField" layoutX="95.0" layoutY="177.0" prefHeight="26.0" prefWidth="102.0" />
+        <TextField fx:id="numberField" layoutX="95.0" layoutY="74.0" prefHeight="26.0" prefWidth="222.0" />
+        <TextField fx:id="nameField" layoutX="95.0" layoutY="110.0" prefHeight="26.0" prefWidth="222.0" />
+        <TextField fx:id="apprbyField" layoutX="95.0" layoutY="141.0" prefHeight="26.0" prefWidth="222.0" />
+        <TextField fx:id="apprstatField" layoutX="95.0" layoutY="177.0" prefHeight="26.0" prefWidth="222.0" />
         <Label layoutX="14.0" layoutY="146.0" text="Approved By" />
         <Label layoutX="6.0" layoutY="181.0" text="Approval Status" />
         <Label layoutX="14.0" layoutY="79.0" text="Order Number" />
         <Label layoutX="20.0" layoutY="115.0" text="Order Name" />
-        <Button fx:id="finalCreateBtn" layoutX="129.0" layoutY="274.0" mnemonicParsing="false" onAction="#finalCreateBtnClick" text="Create" />
-        <Button fx:id="cancelBtn" layoutX="15.0" layoutY="354.0" mnemonicParsing="false" onAction="#cancelBtnClick" text="Cancel" />
-        <Label fx:id="messageLabel" layoutX="66.0" layoutY="311.0" text="Error: Please biae0gnae0ng0egiae" />
-      <Button fx:id="selectBtn" layoutX="210.0" layoutY="207.0" mnemonicParsing="false" onAction="#selectBtnClick" prefHeight="26.0" prefWidth="69.0" text="Select " />
-      <Text layoutX="29.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Photos" />
-      <TextField fx:id="photoField" layoutX="95.0" layoutY="207.0" prefHeight="26.0" prefWidth="102.0" />
+        <Button fx:id="finalCreateBtn" layoutX="351.0" layoutY="444.0" mnemonicParsing="false" onAction="#finalCreateBtnClick" text="Create" />
+        <Button fx:id="cancelBtn" layoutX="21.0" layoutY="444.0" mnemonicParsing="false" onAction="#cancelBtnClick" text="Cancel" />
+        <Label fx:id="messageLabel" layoutX="128.0" layoutY="426.0" text="Error: Please biae0gnae0ng0egiae" />
+      <Button fx:id="frontselectBtn" layoutX="332.0" layoutY="207.0" mnemonicParsing="false" onAction="#frontselectBtnClick" prefHeight="26.0" prefWidth="69.0" text="Select " />
+      <Text layoutX="29.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Front Photo" />
+      <TextField fx:id="frontphotoField" layoutX="95.0" layoutY="207.0" prefHeight="26.0" prefWidth="221.0" />
+      <TextField fx:id="leftphotoField" layoutX="95.0" layoutY="241.0" prefHeight="26.0" prefWidth="222.0" />
+      <TextField fx:id="rightphotoField" layoutX="95.0" layoutY="278.0" prefHeight="26.0" prefWidth="222.0" />
+      <TextField fx:id="topphotoField" layoutX="95.0" layoutY="313.0" prefHeight="26.0" prefWidth="222.0" />
+      <TextField fx:id="backphotoField" layoutX="95.0" layoutY="351.0" prefHeight="26.0" prefWidth="222.0" />
+      <TextField fx:id="bottomphotoField" layoutX="95.0" layoutY="382.0" prefHeight="26.0" prefWidth="222.0" />
+      <Text layoutX="29.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Left Photo" />
+      <Text layoutX="22.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Right Photo" />
+      <Text layoutX="22.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Top Photo" />
+      <Text layoutX="22.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Back Photo" />
+      <Text layoutX="12.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bottom Photo" />
+      <Button fx:id="leftselectBtn" layoutX="332.0" layoutY="241.0" mnemonicParsing="false" onAction="#leftselectBtnClick" prefHeight="26.0" prefWidth="69.0" text="Select " />
+      <Button fx:id="rightselectBtn" layoutX="332.0" layoutY="278.0" mnemonicParsing="false" onAction="#rightselectBtnClick" prefHeight="26.0" prefWidth="69.0" text="Select " />
+      <Button fx:id="topselectBtn" layoutX="332.0" layoutY="313.0" mnemonicParsing="false" onAction="#topselectBtnClick" prefHeight="26.0" prefWidth="69.0" text="Select " />
+      <Button fx:id="backselectBtn" layoutX="332.0" layoutY="343.0" mnemonicParsing="false" onAction="#backselectBtnClick" prefHeight="26.0" prefWidth="69.0" text="Select " />
+      <Button fx:id="bottomselectBtn" layoutX="332.0" layoutY="382.0" mnemonicParsing="false" onAction="#bottomselectBtnClick" prefHeight="26.0" prefWidth="69.0" text="Select " />
     </children>
 </AnchorPane>

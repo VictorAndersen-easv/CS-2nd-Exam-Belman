@@ -1,8 +1,6 @@
 package dk.easv.exambelsign.GUI;
 
-import com.microsoft.sqlserver.jdbc.SQLServerException;
 import dk.easv.exambelsign.BE.Order;
-import dk.easv.exambelsign.DAL.DBConnector;
 import dk.easv.exambelsign.DAL.OrderDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,13 +17,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.*;
-import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 public class OrdersPageController implements Initializable {
