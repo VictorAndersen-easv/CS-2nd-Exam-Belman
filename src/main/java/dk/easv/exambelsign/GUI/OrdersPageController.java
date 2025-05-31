@@ -103,7 +103,7 @@ public class OrdersPageController implements Initializable {
         Scene scene = new Scene(newordpop);
         Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         appStage.setScene(scene);
-        appStage.show();
+        appStage.show();    
     }
 
     @FXML

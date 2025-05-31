@@ -28,8 +28,7 @@ public class NewUserController implements Initializable {
     @FXML private TextField passwordField;
     @FXML private TextField roleField;
     @FXML private TextField emailField;
-    @FXML private Button finalCreateBtn;
-    @FXML private Button cancelBtn;
+
     @FXML private Label messageLabel;
 
 

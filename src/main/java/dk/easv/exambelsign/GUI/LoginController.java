@@ -16,16 +16,12 @@ import javafx.stage.Stage;
 import javafx.scene.input.KeyEvent;
 
 
-import javax.swing.*;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class LoginController {
-
-    private String mockUsername = "Victor";
-    private String mockPassword = "Andersen";
 
 
     @FXML
@@ -88,7 +84,7 @@ public class LoginController {
         }
     }
     @FXML
-    public void entahButtonPressed(KeyEvent e) throws Exception {
+    public void enterButtonPressed(KeyEvent e) throws Exception {
 
         if(e.getCode().toString().equals("ENTER"))
         {

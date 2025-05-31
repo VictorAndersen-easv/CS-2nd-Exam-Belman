@@ -7,7 +7,7 @@ public class BCryptor {
 
 
     public static void main(String[] args) {
-
+        //Testing method
         String pw = "myadminpassword";
 
         System.out.println("BCrypt (192):\t" + bcryption(pw));

@@ -32,7 +32,6 @@ public class NewOrderController implements Initializable {
     @FXML private TextField nameField;
     @FXML private TextField apprbyField;
     @FXML private TextField apprstatField;
-    @FXML private TextField photoField;
     @FXML private TextField frontphotoField;
     @FXML private TextField leftphotoField;
     @FXML private TextField rightphotoField;
@@ -40,9 +39,6 @@ public class NewOrderController implements Initializable {
     @FXML private TextField backphotoField;
     @FXML private TextField bottomphotoField;
 
-    @FXML private Button frontselectBtn;
-    @FXML private Button cancelBtn;
-    @FXML private Button finalCreateBtn;
 
 
     public void finalCreateBtnClick(ActionEvent event) {

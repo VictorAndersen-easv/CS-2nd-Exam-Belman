@@ -34,13 +34,6 @@ public class PhotosController implements Initializable {
     public ImageView BackPhoto;
     public ImageView BottomPhoto;
 
-    public Image FrontPhotoImage;
-    public Image LeftPhotoImage;
-    public Image RightPhotoImage;
-    public Image TopPhotoImage;
-    public Image BackPhotoImage;
-    public Image BottomPhotoImage;
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
